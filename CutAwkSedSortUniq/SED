@@ -1,0 +1,32 @@
+#Sed by default replaces first occurence of pattern in each line
+sed s/shiva/singh/ <file>    this will replace shiva with singh
+sed s/SHIVA/singh/i <File>    Case sensitive
+
+sed 's/SHIVA/singh/g' <file> this will update entire file SHIVA with singh
+sed 's/SHIVA/singh/2'<file>    every 2nd occurent in each line will be changed
+sed 's/shiva/singh/gw like.txt' <file>  make new file like.txt with only changed lines
+
+echo '/home/export'| sed 's/\/home\/export/\/export\/user\/jsonc/'    #escaping /
+echo '/home/export'|sed 's#/home/export#/export/user/jsonc#'        changed seperator with #
+echo '/home/export'|sed 's:/home/export:/export/user/jsonc:'        changed seperator with :
+
+sed '/This/d' <file>      this will delete line with This matching pattern
+
+sed '/^#/d' <file>        this will remove line starting with #
+sed '/^$/d' <file>        This will remove empty line from file(^ start of line $ end of line)
+
+sed '/^#/d' ; '/$^/d'; 's/apache/tomcat' <File>    Combining multiple sed statement
+sed -e '/^#/d' -e '/$^/d'-e 's/apache/tomcat/' <File> Combining multiple sed statement
+
+
+sed '2 s/apache/tomcat/' <file>   this will substitution only in line 2
+sed '/Group/ s/apache/tomcat/'    this will update apache pattern to tomcat where line has Group pattern
+sed '1,4 s/apache/tomcat/'    this will update apache pattern to tomcat from line 1 to 4
+
+this will update pattern apache with tomcat in lines which has #user and next blank
+sed '/#user/,/#$/' s/apache/tomcat
+
+sed -f script.sed <imput file>    script.sed has sed script and can be passed in sed command
+
+sed -n '1p' <filename>      will give content of line 1
+sed -n '2p' <filename>      will give content of line 2

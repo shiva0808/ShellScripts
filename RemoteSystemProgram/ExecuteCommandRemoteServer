@@ -1,0 +1,19 @@
+cat servers
+server1
+server2
+server3
+
+for SERVER in $(cat servers)
+do
+  ssh ${server} hostname
+  ssh ${server} uptime
+done
+====================
+ssh Server01 'hostname ; uptime'    run multiple command in single line on remote system
+====================
+ssh Server1 "${CMD1} ; ${CMD2}"         CMD1 and CMD2 can be variables
+====================
+Error Code : If there is error 255 will be returned from ssh
+otherwise return code of remote server will be shown
+echo ${?}       To view last command exit status
+====================

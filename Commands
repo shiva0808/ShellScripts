@@ -1,0 +1,28 @@
+locate <filename>     will locate filename, in case not found run updatedb
+updatedb
+==============
+Find Command
+find /usr/sbin -name useradd
+find /usr/bin -name useradd 2> /dev/null
+============
+user add <username>
+userdel -r <username>     deletes user and his home directory
+
+usermod
+chage
+===========
+Compress and uncompress
+tar -cvf filaname.tar <dir/file to be compressed>
+tar -czvf filename.tar.gz <directory>      making a tar.gz file directly
+gzip filename.tar                          gzip a tar file
+gunzip filename.tar                        Extracting a gzip file
+tar -zxvf filename.tar.gz                  extracting a tar.gz file
+============
+tee COMMAND
+echo "192.168.100.1 Server1" | sudo tee -a /etc/hosts
+============
+Firewall
+service stop firewalld
+systemctl stop firewalld
+
+systemctl disable firewalld
